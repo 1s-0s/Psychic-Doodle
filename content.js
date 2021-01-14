@@ -1,15 +1,18 @@
 console.log("chrome extension go? ");
 
 chrome.runtime.onMessage.addListener(gotMessage);
-
+let currColor="#000000"
+let currWeight=3;
 function gotMessage(message, sender, sendResponse) {
-    console.log("We are here");
-  let paragraphs = document.getElementsByTagName("h1");
-  for (elt of paragraphs) {
-    elt.style['background-color']="#FF00FF";
-    elt.innerHTML = message.txt;
+  console.log("inside got message",message.flag);
+  if(message.flag==true)
+    currColor=message.color;
+  else{
+    currWeight=3*message.weight;
+    console.log("currWeight: ",currWeight);
   }
-  console.log(message.txt);
+    
+
 }
 // P5.js
 let s = (sketch)=>{
@@ -24,8 +27,8 @@ let s = (sketch)=>{
   };
 
   sketch.draw=()=>{
-      sketch.stroke("red");
-      sketch.strokeWeight(4);
+      sketch.stroke(currColor);
+      sketch.strokeWeight(currWeight);
       if(sketch.mouseIsPressed){
           sketch.line(sketch.mouseX,sketch.mouseY,sketch.pmouseX,sketch.pmouseY);
       }
