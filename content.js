@@ -3,14 +3,19 @@ console.log("chrome extension go? ");
 chrome.runtime.onMessage.addListener(gotMessage);
 let currColor="#000000"
 let currWeight=3;
+let currShape = "line";
 function gotMessage(message, sender, sendResponse) {
   console.log("inside got message",message.flag);
-  if(message.flag==true)
+  if(message.flag==0)
     currColor=message.color;
-  else{
+  else if(message.flag==1){
     currWeight=3*message.weight;
     console.log("currWeight: ",currWeight);
   }
+  // else if(message.flag==2){
+  //   currShape=message.shape;
+  //   console.log("shape: ",currShape);
+  // }
     
 
 }
@@ -30,7 +35,14 @@ let s = (sketch)=>{
       sketch.stroke(currColor);
       sketch.strokeWeight(currWeight);
       if(sketch.mouseIsPressed){
+          //console.log("shape: ",shape);
           sketch.line(sketch.mouseX,sketch.mouseY,sketch.pmouseX,sketch.pmouseY);
+          //rectangle
+          // sketch.rect(sketch.mouseX,sketch.mouseY,sketch.pmouseX,sketch.pmouseY);
+          // //ellipse
+          // sketch.ellipse(sketch.mouseX,sketch.mouseY,sketch.pmouseX,sketch.pmouseY);
+          // //point
+          // sketch.point(sketch.pmouseX,sketch.pmouseY);
       }
   };
 };

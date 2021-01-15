@@ -1,4 +1,16 @@
-/* body{
-    width: 30em;
-    height: 40em;
-} */
+/**
+ * /* body{
+ *     width: 30em;
+ *     height: 40em;
+ * }
+ *
+ * @format
+ */
+
+h2 {
+    text-align: center !important;
+}
+
+.ui .segment {
+    text-align: center !important;
+}
