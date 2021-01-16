@@ -14,3 +14,37 @@ h2 {
 .ui .segment {
     text-align: center !important;
 }
+/* SHAPES */
+.circle{
+    background:url("./images/shapes/circle.svg") !important;
+}
+.square{
+    background:url("./images/shapes/square.svg") !important;
+}
+.triangle{
+    background:url("./images/shapes/triangle.svg") !important;
+}
+.ellipse{
+    background:url("./images/shapes/ellipse.svg") !important;
+}
+.line{
+    background:url("./images/shapes/line.svg") !important;
+}
+/* TOOLS */
+/* .bucket{
+    background:url("./images/tools/bucket.svg") !important;
+}
+.eraser{
+    background:url("./images/tools/eraser.svg") !important;
+}
+.scissors{
+    background:url("./images/tools/scissors.svg") !important;
+}
+.spray{
+    background:url("./images/tools/spray.svg") !important;
+} */
+
+.tools{
+    /* height: 5% !important; */
+    width: 5% !important;
+}

@@ -6,6 +6,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS file -->
     <link rel="stylesheet" href="master.css" />
     <!-- P5.js  -->
     <script src="p5.js" type="text/javascript"></script>
@@ -14,7 +15,8 @@
     <!-- semantic ui js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js" integrity="sha512-dqw6X88iGgZlTsONxZK9ePmJEFrmHwpuMrsUChjAw1mRUhUITE5QU9pkcSox+ynfLhL15Sv2al5A0LVyDCmtUw==" crossorigin="anonymous"></script>
     <script src="sketch.js" type="text/javascript"></script>
-
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
     <title>Psychic Doodle</title>
 </head>
 
@@ -24,7 +26,7 @@
             <centre>Let's Doodle</centre>
         </h2>
         <!-- colors section -->
-        <div class="ui segment">
+        <div class="ui red segment">
             <div class="ui equal column grid">
                 <div class="row">
                     <div class="column">
@@ -57,34 +59,34 @@
                 </div>
             </div>
         </div>
-        <div class="ui segment">
+        <div class="ui green segment">
             <button id="1x" class="circular ui icon mini button">1x</button>
             <button id="2x" class="circular ui icon tiny button">2x</button>
             <button id="3x" class="circular ui icon small button">3x</button>
             <button id="4x" class="circular ui icon medium button">4x</button>
             <button id="5x" class="circular ui icon large button">5x</button>
         </div>
-        <div class="ui segment">
-            <button class="ui icon button">
-          <!-- <i size="small" class="window minimize outline icon"></i> -->
-          <img src="images/circle.png" width="5%" />
-        </button>
-            <button class="ui icon button">
-          <!-- <i size="small" class="circle outline icon"></i> -->
-          <img src="images/ellipse.png" width="5%" />
-        </button>
-            <button class="ui icon button">
-          <!-- <i size="small" class="line icon"></i> -->
-          <img src="images/ellipse.png" width="5%" />
-        </button>
-            <button class="ui icon button">
-          <!-- <i size="small" class="square outline icon"></i> -->
-          <img src="images/ellipse.png" width="5%" />
-        </button>
-            <button class="ui icon button">
-          <!-- <i size="small" class="square outline icon"></i> -->
-          <img src="images/ellipse.png" width="5%" />
-        </button>
+        <div class="ui blue segment">
+            <button class="ui icon massive button square"></button>
+            <button class="ui icon massive button circle"></button>
+            <button class="ui icon massive button triangle"></button>
+            <button class="ui icon massive button ellipse"></button>
+            <button class="ui icon massive button line"></button>
+            
+        </div>
+        <div class="ui violet segment">
+            <button class="ui button">
+                <img class="tools eraser" src="./images/tools/eraser.svg">
+            </button>
+            <button class="ui button">
+                <img class="tools bucket" src="./images/tools/bucket.svg">
+            </button>
+            <button class="ui button">
+                <img class="tools scissors" src="./images/tools/scissors.svg">
+            </button>
+            <button class="ui button">
+                <img class="tools spray" src="./images/tools/spray.svg">
+            </button>
         </div>
     </div>
 </body>
