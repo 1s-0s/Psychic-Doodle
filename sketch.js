@@ -31,7 +31,7 @@ function setup() {
   //TOOLS
   document.getElementById("eraserTool").addEventListener("click", () => { changeTool("eraserTool") });
   document.getElementById("bucketTool").addEventListener("click", () => { changeTool("bucketTool") });
-  document.getElementById("scissorsTool").addEventListener("click", () => { changeTool("scissorsTool") });
+  document.getElementById("brushTool").addEventListener("click", () => { changeTool("brushTool") });
   document.getElementById("sprayTool").addEventListener("click", () => { changeTool("sprayTool") });
 
 

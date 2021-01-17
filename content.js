@@ -1,6 +1,9 @@
 console.log("chrome extension go? ");
 
 chrome.runtime.onMessage.addListener(gotMessage);
+let eraseEnable = false;
+let spread = 10;
+let numDots = 50;
 let currColor = "#000000"
 let currWeight = 3;
 let currShape = "pointShape";
@@ -35,42 +38,71 @@ let s = (sketch) => {
     sketch.clear();
   };
 
+  // function toggleErase() {
+  //   if (eraseEnable) {
+  //     sketch.noErase();
+  //     eraseEnable = false;
+  //   }
+  //   else {
+  //     sketch.erase(10, 10);
+  //     eraseEnable = true;
+  //   }
+  // }
+
+
   sketch.draw = () => {
     sketch.stroke(currColor);
     sketch.strokeWeight(currWeight);
     if (sketch.mouseIsPressed) {
       //console.log("shape: ",shape);
       if (currShape === "lineShape") {
+        // currTool = "";
         sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
       }
       else if (currShape === "circleShape") {
+        // currTool = "";
         sketch.ellipse(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
       }
       else if (currShape === "ellipseShape") {
+        // currTool = "";
         sketch.ellipse(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
       }
       else if (currShape === "triangleShape") {
+        // currTool = "";
         sketch.triangle(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY, sketch.pmouseX, sketch.pmouseY);
       }
       else if (currShape === "squareShape") {
+        // currTool = "";
         sketch.rect(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
       }
       else {
+        // currTool = "";
         sketch.point(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
       }
       //USING TOOLS
       if (currTool === "bucketTool") {
+        sketch.background(currColor);
+      }
+      else if (currTool === "eraserTool") {
+        // toggleErase();
+        currShape = "";
+        // currColor = "";
+        sketch.erase(100, 100);
+      }
+      else if (currTool === "sprayTool") {
+        currShape = "";
+        for (let i = 0; i < numDots; i++) {
+          let x = sketch.mouseX + sketch.random(-spread, spread);
+          let y = sketch.mouseY + sketch.random(-spread, spread);
+          sketch.point(x, y);
+        }
+        //sketch.noCursor();
+      }
+      else if (currTool === "brushTool") {
+        currShape = "";
+        // sketch.noErase();
         sketch.fill(currColor);
       }
-      // else if (currTool === "eraserTool") {
-      //   sketch.fill('white');
-      // }
-      // else if(currTool === "sprayTool"){
-      //   sketch.erase();
-      // }
-      // else if(currTool === "scissorsTool"){
-      //   sketch.erase();
-      // }
     }
   };
 };

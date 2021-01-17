@@ -6,44 +6,57 @@
  *
  * @format
  */
- @font-face {
+
+@font-face {
     font-family: doodle;
     src: url("./font/Kbzipadeedoodah-YG3j.ttf");
 }
-body{
+
+body {
     background-color: #202020 !important;
-    border:2px solid #12c7ea;
+    border: 2px solid #12c7ea;
     /* height: 50vh !important; */
     /* border-color: red; */
 }
+
 h2 {
     padding-top: 2vh !important;
     font-family: doodle !important;
     text-align: center !important;
     color: #12c7ea;
-    
 }
 
 .ui .segment {
     text-align: center !important;
 }
+
+
 /* SHAPES */
-.circle{
-    background:url("./images/shapes/circle.svg") !important;
+
+.circle {
+    background: url("./images/shapes/circle.svg") !important;
 }
-.square{
-    background:url("./images/shapes/square.svg") !important;
+
+.square {
+    background: url("./images/shapes/square.svg") !important;
 }
-.triangle{
-    background:url("./images/shapes/triangle.svg") !important;
+
+.triangle {
+    background: url("./images/shapes/triangle.svg") !important;
 }
-.ellipse{
-    background:url("./images/shapes/ellipse.svg") !important;
+
+.ellipse {
+    background: url("./images/shapes/ellipse.svg") !important;
 }
-.line{
-    background:url("./images/shapes/line.svg") !important;
+
+.line {
+    background: url("./images/shapes/line.svg") !important;
 }
+
+
 /* TOOLS */
+
+
 /* .bucket{
     background:url("./images/tools/bucket.svg") !important;
 }
@@ -57,8 +70,9 @@ h2 {
     background:url("./images/tools/spray.svg") !important;
 } */
 
-.tools{
+.tools {
     /* height: 5% !important; */
     width: 15% !important;
-    margin-right:5% !important;
+    margin-right: 5% !important;
+    cursor: pointer !important;
 }
