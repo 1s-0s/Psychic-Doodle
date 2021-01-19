@@ -74,6 +74,7 @@ let s = (sketch) => {
       else if (currShape === "squareShape") {
         // currTool = "";
         sketch.rect(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
+        //sketch.scale(sketch.pmouseX, sketch.pmouseY);
       }
       else {
         // currTool = "";
@@ -81,16 +82,22 @@ let s = (sketch) => {
       }
       //USING TOOLS
       if (currTool === "bucketTool") {
+        sketch.noErase();
         sketch.background(currColor);
       }
       else if (currTool === "eraserTool") {
         // toggleErase();
         currShape = "";
-        // currColor = "";
-        sketch.erase(100, 100);
+        sketch.fill('white');
+        sketch.noStroke();
+        sketch.ellipse(sketch.mouseX, sketch.mouseY, 30, 30);
+        //p5.instanc.drawingContext.globalCompositeOperation = 'destination-out';
+        //sketch.erase();
       }
       else if (currTool === "sprayTool") {
-        currShape = "";
+        // currShape = "";
+        //sketch.noErase();
+        console.log("inside sprayTool: ", currColor);
         for (let i = 0; i < numDots; i++) {
           let x = sketch.mouseX + sketch.random(-spread, spread);
           let y = sketch.mouseY + sketch.random(-spread, spread);
@@ -99,9 +106,10 @@ let s = (sketch) => {
         //sketch.noCursor();
       }
       else if (currTool === "brushTool") {
-        currShape = "";
-        // sketch.noErase();
+        //currShape = "";
+        sketch.noErase();
         sketch.fill(currColor);
+        //sketch.ellipse(sketch.mouseX, sketch.mouseY, 50, 50);
       }
     }
   };
