@@ -23,5 +23,7 @@ Learnt a lot about how extensions work and how the code flows on a browser.
 ## Resources
 - Followed coding train's extension playlist to grasp the basics of chrome extension.
 
+## Screenshot
 
+![](https://github.com/ritik307/onlyDraw/blob/main/screenshots/display.PNG)
 
