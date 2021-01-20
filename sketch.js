@@ -2,7 +2,10 @@
 
 console.log("outside");
 function setup() {
-  
+  chrome.storage.sync.get(['color'],(result)=>{
+    console.log("inside here :", result.color);
+    document.getElementById("start").style.backgroundColor=result.color;
+  });
   noCanvas();
   // start
   document.getElementById("start").addEventListener("click",()=>{startFunc()});
@@ -44,10 +47,15 @@ function setup() {
       start=result.on;
       start=(start===true) ? false : true;
       chrome.storage.sync.set({on:start},()=>{
-        if(start===true)
-          document.getElementById("start").style.backgroundColor="#12c7ea";
+        if(start===true){
+          chrome.storage.sync.set({color:"#12c7ea"},()=>{
+            document.getElementById("start").style.backgroundColor="#12c7ea";
+          })
+        }
         else
-          document.getElementById("start").style.backgroundColor="gray";
+        chrome.storage.sync.set({color:"#A4A4AB"},()=>{
+          document.getElementById("start").style.backgroundColor="#A4A4AB";
+        })
       })
     });
     

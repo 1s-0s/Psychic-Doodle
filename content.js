@@ -10,7 +10,7 @@ chrome.storage.sync.set({ on: false }, () => {
   let currColor = "#000000";
   let currWeight = 3;
   let currOperation = "lineShape";
-  let begin = false;
+  let begin = true;
   // chrome.storage.sync.get(["on"], (result) => {
   //   on = result.on;
   //   console.log("inside sketch 0: ", result.on);

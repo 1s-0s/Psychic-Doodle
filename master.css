@@ -25,7 +25,10 @@ h2 {
     text-align: center !important;
     color: #12c7ea;
 }
-
+#start{
+    
+    background-color: "#A4A4AB";
+}
 .ui .segment {
     text-align: center !important;
 }
