@@ -2,7 +2,7 @@
 
 console.log("outside");
 function setup() {
-  let start =true;
+  
   noCanvas();
   // start
   document.getElementById("start").addEventListener("click",()=>{startFunc()});
@@ -39,26 +39,19 @@ function setup() {
 
   // start 
   function startFunc(){
-    start=(start===true) ? false : true;
-    if(start===true)
-      document.getElementById("start").style.backgroundColor="green";
-    else
-      document.getElementById("start").style.backgroundColor="grey";
-    let params = {
-      active: true,
-      currentWindow: true,
-    };
-
-    chrome.tabs.query(params, gotTabs);
-
-    function gotTabs(tabs) {
-      let msg = {
-        start: start,
-        flag: -1
-      };      
-      chrome.tabs.sendMessage(tabs[0].id, msg);
-    }
-  }
+    let start;
+    chrome.storage.sync.get(['on'],(result)=>{
+      start=result.on;
+      start=(start===true) ? false : true;
+      chrome.storage.sync.set({on:start},()=>{
+        if(start===true)
+          document.getElementById("start").style.backgroundColor="#12c7ea";
+        else
+          document.getElementById("start").style.backgroundColor="gray";
+      })
+    });
+    
+  };
   //to change the color
   function changeColor(currcolor) {
     let params = {
