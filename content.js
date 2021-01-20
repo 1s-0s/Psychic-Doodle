@@ -38,7 +38,7 @@ chrome.storage.sync.set({ on: false }, () => {
     sketch.setup = () => {
       document.body.style["userSelect"] = "none";
       let h = document.body.clientHeight;
-      let c = sketch.createCanvas(sketch.windowWidth, sketch.windowHeight);
+      let c = sketch.createCanvas(sketch.displayWidth, h);
       c.position(0, 0);
       c.style("pointer-events", "none");
       sketch.clear();
@@ -47,67 +47,66 @@ chrome.storage.sync.set({ on: false }, () => {
       chrome.storage.sync.get(["on"], (result) => {
         begin = result.on;
       });
-        console.log("mouse is clicked0 and begin is ",begin);
-        if(begin===true){
-          console.log("mouse is clicked1 and begin is ",begin);
-          if (currOperation === "circleShape") {
-            sketch.ellipse(sketch.mouseX, sketch.mouseY, 200, 200);
-          } else if (currOperation === "ellipseShape") {
-            sketch.ellipse(sketch.mouseX, sketch.mouseY, 300, 200);
-          } else if (currOperation === "triangleShape") {
-            let x1 = sketch.mouseX;
-            let y1 = sketch.mouseY;
-            let x2 = x1 + 100;
-            let y2 = y1 - 100;
-            let x3 = x1 + 200;
-            let y3 = y1;
-    
-            sketch.triangle(x1, y1, x2, y2, x3, y3);
-          } else if (currOperation === "squareShape") {
-            sketch.rect(sketch.mouseX, sketch.mouseY, 200, 200);
-          }
+      console.log("mouse is clicked0 and begin is ", begin);
+      if (begin === true) {
+        console.log("mouse is clicked1 and begin is ", begin);
+        if (currOperation === "circleShape") {
+          sketch.ellipse(sketch.mouseX, sketch.mouseY, 200, 200);
+        } else if (currOperation === "ellipseShape") {
+          sketch.ellipse(sketch.mouseX, sketch.mouseY, 300, 200);
+        } else if (currOperation === "triangleShape") {
+          let x1 = sketch.mouseX;
+          let y1 = sketch.mouseY;
+          let x2 = x1 + 100;
+          let y2 = y1 - 100;
+          let x3 = x1 + 200;
+          let y3 = y1;
+
+          sketch.triangle(x1, y1, x2, y2, x3, y3);
+        } else if (currOperation === "squareShape") {
+          sketch.rect(sketch.mouseX, sketch.mouseY, 200, 200);
         }
-      
-      
+      }
+
+
     };
 
     sketch.draw = () => {
       //chrome.storage.sync.get(["on"], (result) => {
-        //begin = result.on;
-        console.log("drawing0 and begin is ",begin);
-        if (begin === true) {
-          
-          console.log("drawing1 and begin is ",begin);
-
-          sketch.stroke(currColor);
-          sketch.strokeWeight(currWeight);
-          if (sketch.mouseIsPressed) {
-            if (currOperation === "lineShape") {
-              sketch.line(
-                sketch.mouseX,
-                sketch.mouseY,
-                sketch.pmouseX,
-                sketch.pmouseY
-              );
+      //begin = result.on;
+      //console.log("drawing0 and begin is ", begin);
+      if (begin === true) {
+        //console.log("drawing1 and begin is ", begin);
+        sketch.stroke(currColor);
+        sketch.strokeWeight(currWeight);
+        if (sketch.mouseIsPressed) {
+          if (currOperation === "lineShape") {
+            sketch.line(
+              sketch.mouseX,
+              sketch.mouseY,
+              sketch.pmouseX,
+              sketch.pmouseY
+            );
+          }
+          //USING TOOLS
+          if (currOperation === "bucketTool") {
+            sketch.noErase();
+            sketch.background(currColor);
+          } else if (currOperation === "eraserTool") {
+            sketch.clear();
+          } else if (currOperation === "sprayTool") {
+            for (let i = 0; i < numDots; i++) {
+              let x = sketch.mouseX + sketch.random(-spread, spread);
+              let y = sketch.mouseY + sketch.random(-spread, spread);
+              sketch.point(x, y);
             }
-            //USING TOOLS
-            if (currOperation === "bucketTool") {
-              sketch.noErase();
-              sketch.background(currColor);
-            } else if (currOperation === "eraserTool") {
-              sketch.clear();
-            } else if (currOperation === "sprayTool") {
-              for (let i = 0; i < numDots; i++) {
-                let x = sketch.mouseX + sketch.random(-spread, spread);
-                let y = sketch.mouseY + sketch.random(-spread, spread);
-                sketch.point(x, y);
-              }
-            } else if (currOperation === "brushTool") {
-              sketch.noErase();
-              sketch.fill(currColor);
-            }
+          } else if (currOperation === "brushTool") {
+            //sketch.noErase();
+            sketch.fill(currColor);
+            sketch.line(sketch.mouseX, sketch.mouseY, sketch.pmouseX, sketch.pmouseY);
           }
         }
+      }
       //});
     };
   };
