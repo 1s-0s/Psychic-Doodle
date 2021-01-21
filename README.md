@@ -1,4 +1,4 @@
-# onlyDraw
+# Psychic Doodle
 A browser extension that allows user to doodle over the active web page.
 
 ## Inspiration
